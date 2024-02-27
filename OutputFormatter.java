@@ -19,12 +19,16 @@ public class OutputFormatter {
         this.outputProgram = outputProgram;
         this.printUsed = printUsed;
     }
-    
+    public OutputFormatter()
+    {
+
+    }
     public void printOutput(){
 
     }
     public String saveOutput(){
         String fileName = "testfile.py";
+        //need to add a part where it checks if there are string arays due to instatiation of output formatter without inputs
         try{
             PrintWriter newFileWriter = new PrintWriter(fileName);
             for(String i : origionalProgram)
