@@ -11,12 +11,12 @@ public class Headers {
         }
     }
 
-    public static String[] fixHeaders(String[] fixCode) {
+    public static String fixHeaders(String fixCode) {
         if(!fixCode.endsWith("):")) {
                 fixCode += "):";
         }
         if(!fixCode.endsWith("(\\([^()]*\\):)")) {
-                fixCode = fixCode.replace("):", "():")
+                fixCode = fixCode.replace("):", "():");
         }
         return fixCode;
     }
