@@ -4,7 +4,7 @@
 public class Headers {
 
     public static void findHeaders(String[] pythonLines) {
-        for(int i=0;i<numLines;i++) {
+        for(int i=0;i< pythonLines.length;i++) {
             if(pythonLines[i].startsWith("def ")) {
                pythonLines[i] = fixHeaders(pythonLines[i]);
             }
@@ -15,7 +15,7 @@ public class Headers {
         if(!fixCode.endsWith("):")) {
                 fixCode += "):";
         }
-        if(!fixCode.endsWith("(\\([^()]*\\):)")) {
+        if(!fixCode.endsWith("(\\([^()]*\\):)")) { //(num):           def getFnum():
                 fixCode = fixCode.replace("):", "():");
         }
         return fixCode;

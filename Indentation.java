@@ -2,30 +2,32 @@
 // check indentation of Python file
 //Indentation.fix(pythonParsed)
 // Fixed indentation in python file
-public class Indentation {
-    //Parse for spaces & see if each line begins with 0 or multiple of 4 # of spaces
-    //Returns String array w/ correct # of spaces.
-    public String[] correctLength(String[] stringArray) {
-        String addSpace = " ";
 
+import java.util.Stack;
+
+
+//Assumes there is one statement per function/loop/branch
+
+//NOTE: Ask about spacing & if we can anticipate divides between separate functions/commands, how to distinguish?
+public class Indentation {
+    public static String[] fixTabs(String[] stringArray) {
+        int tabNumber = 0;
         for (int i = 0; i < stringArray.length; i++) {
-            int lastSpaceIndex = 0;
-            if (stringArray[i].charAt(0) == ' ') {
-                while (stringArray[i].charAt(lastSpaceIndex) == ' ') {
-                    lastSpaceIndex++;
-                }
+            stringArray[i] = stringArray[i].trim(); //removes all spaces from front/back of string
+            if (stringArray[i].isEmpty()) {
+                tabNumber = 0;
+                continue;
             }
-            else {
-                lastSpaceIndex = -1;
+            for (int j = 0; j < tabNumber; j++) {   //indents line of code for each previous indent
+                stringArray[i] = ("\t" + stringArray[i]);
             }
-            int numSpaces = lastSpaceIndex + 1;
-            if ((numSpaces % 4) != 0) {
-                for (int j = 0; j < (4-(numSpaces % 4)); j++) {
-                    stringArray[i] = addSpace + stringArray[i];
-                }
+            if (stringArray[i].charAt(stringArray[i].length() - 1) == ':') {    //If line ends with a colon, ensures following line indents.
+                tabNumber++;
+            }
+            else if (tabNumber > 0) {  //If line doesn't end in colon, assumes this statement is only one under current indent. Returns tab to previous line.
+                tabNumber--;
             }
         }
         return stringArray;
     }
-
 }
