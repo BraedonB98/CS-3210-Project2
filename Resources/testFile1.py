@@ -1,4 +1,4 @@
-def getFactorial(num):
+def getFa@ctorial(num):
     factorial = 1
     if num < 0:
         print("Sorry, factorial does not exist for negative numbers")
@@ -8,7 +8,7 @@ def getFactorial(num):
         for i in range(1,num + 1):
             factorial = factorial*i
 print("indent me??")
-def main():
+def main(():
     num = 7
     factorial = getFactorial(num)
     print("The factorial of",num,"is",factorial)

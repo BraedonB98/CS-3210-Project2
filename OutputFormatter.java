@@ -40,7 +40,7 @@ public class OutputFormatter {
                 newFileWriter.println(i);
             }
             newFileWriter.println("\r\n");
-            newFileWriter.println("Keyword \"print\" was used : " + printUsed + " Times");
+            newFileWriter.println("Keyword \"print\" was used : " + PrintCounter.printNum + " Times");
             newFileWriter.close();
         }
         catch(IOException error){

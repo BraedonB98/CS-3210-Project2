@@ -9,7 +9,7 @@ public class PrintFunctionCounter {
     public static void main(String[] args) {
         // Replace filePath with the path to your file
         String filePath = "PythonTest.py";
-        String functionName = "print";
+        String functionName = "print(";
         int count = 0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
