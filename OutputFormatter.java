@@ -26,7 +26,7 @@ public class OutputFormatter {
     public void printOutput(){
 
     }
-    public String saveOutput(){
+    public String saveOutput(String string){
         String fileName = "testfile.py";
         //need to add a part where it checks if there are string arays due to instatiation of output formatter without inputs
         try{
