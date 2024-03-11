@@ -5,12 +5,10 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
         try {
-            File outputFile = new File("Resources\\Output.txt");
-            outputFile.delete();
             // Parse Python file into string array
             String filePath = "Resources\\testFile1.py";
             String[] oldLines = PythonParser.fileToStringArray(filePath);
-            String[] newLines = oldLines;
+            String[] newLines = oldLines.clone();
 
             // Fix indentation
             newLines = Indentation.fixTabs(newLines);

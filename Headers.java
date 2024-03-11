@@ -25,7 +25,15 @@ public class Headers {
             fix = fix + "(";
         }
 
-        regex = "[^()]*\\)[^()]*\\):";
+        regex = "\\([^()]*\\(";
+        pattern = Pattern.compile(regex);
+        matcher = pattern.matcher(fix);
+
+        while(matcher.find()) {
+            fix = fix.replace("\\([^()]*\\(", "\\([^()]*");
+        }
+
+        regex = "[^()]*\\([^()]*\\):";
         pattern = Pattern.compile(regex);
         matcher = pattern.matcher(fix);
 
@@ -46,6 +54,15 @@ public class Headers {
         }
         fixCode = "def " + fix;
         return fixCode;
+    }
+
+    public static boolean parenCount(String fix){
+        if(fix.contains("(")){
+
+            return true;
+        }
+
+        return false;
     }
 
 }
