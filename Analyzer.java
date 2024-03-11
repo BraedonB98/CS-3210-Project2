@@ -6,6 +6,8 @@ public class Analyzer {
 
         String[] newLines = Indentation.fixTabs(oldLines);
         Headers.findHeaders(newLines);
+
+        PrintCounter.findPrint(newLines);
         for (int i = 0; i < newLines.length; i++) {
             System.out.println((newLines[i]));
         }

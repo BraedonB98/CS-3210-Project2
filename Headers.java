@@ -3,10 +3,12 @@ import java.util.regex.Pattern;
 
 
 public class Headers {
+    static String checker;
 
     public static void findHeaders(String[] pythonLines) {
         for(int i=0;i<PythonParser.numLines;i++) {
-            if(pythonLines[i].startsWith("def ")) {
+            checker = pythonLines[i].trim();
+            if(checker.startsWith("def ")) {
                pythonLines[i] = fixHeaders(pythonLines[i]);
             }
         }

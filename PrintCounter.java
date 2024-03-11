@@ -10,20 +10,18 @@ public class PrintCounter {
         for(int i=0;i<PythonParser.numLines;i++) {
 
             if(pythonLines[i].startsWith("print(")) {
-                pythonLines[i] = countPrint(pythonLines[i]);
+                countPrint(pythonLines[i]);
             }
         }
     }
 
-    public static String countPrint(String fixCode) {
+    public static void countPrint(String fixCode) {
         String regex = "print\\([^()]*\\)";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(fixCode);
         if(!matcher.find()) {
             printNum++;
-            return fixCode;
         }
-        return fixCode;
     }
 
 }
