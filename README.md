@@ -12,3 +12,6 @@ In this part, each team will have to prepare a 10-minute presentation(please lea
 1. Explain to the calss your implementation
 2. Do a live demonstration of your work
 3. Create a quiz includes 2 question about your projectd for the audience to answer after your presentation
+
+## Known Issues:
+No current known issues
