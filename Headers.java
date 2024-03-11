@@ -25,6 +25,27 @@ public class Headers {
             fix = fix + "(";
         }
 
+        regex = "[!|@|#|$|%|^|&|*|{|}|/|?|>|<|,|.|:|;|`|~|=|+]*\\(";
+        pattern = Pattern.compile(regex);
+        matcher = pattern.matcher(fix);
+
+        while(matcher.find()) {
+            fix = fix.replaceFirst("!", "");
+            fix = fix.replaceFirst("@", "");
+            fix = fix.replaceFirst("#", "");
+            fix = fix.replaceFirst("%", "");
+            fix = fix.replaceFirst("&", "");
+            fix = fix.replaceFirst("=", "");
+            fix = fix.replaceFirst("}", "");
+            fix = fix.replaceFirst("~", "");
+            fix = fix.replaceFirst("`", "");
+            fix = fix.replaceFirst(";", "");
+            fix = fix.replaceFirst("<", "");
+            fix = fix.replaceFirst(">", "");
+            fix = fix.replaceFirst("/", "");
+
+        }
+
         regex = "\\([^()]*\\(";
         pattern = Pattern.compile(regex);
         matcher = pattern.matcher(fix);
