@@ -6,13 +6,12 @@ public class Headers {
     static String checker;
 
     public static void findHeaders(String[] pythonLines) {
-        for(int i=0;i<PythonParser.numLines;i++) {
+        for(int i=0;i<pythonLines.length;i++) {
             checker = pythonLines[i].trim();
             if(checker.startsWith("def ")) {
                pythonLines[i] = fixHeaders(pythonLines[i]);
             }
-        }
-    }
+        }    }
 
     public static String fixHeaders(String fixCode) {
         String fix = fixCode.replace("def ","");

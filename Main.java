@@ -4,8 +4,9 @@ public class Main {
     public static void main(String[] args) {
         try {
             // Parse Python file into string array
-            String filePath = "C:\\Users\\bryan\\Desktop\\Spring 2024 Semester\\Principles of Prog. Language M-W\\Project 2 final testing\\CS-3210-Project2\\TestFiles\\TestPython.py";
+            String filePath = "Resources\\testFile1.py";
             String[] pythonLines = PythonParser.fileToStringArray(filePath);
+            String[] originalLines = PythonParser.fileToStringArray(filePath);
 
             // Fix indentation
             pythonLines = Indentation.fixTabs(pythonLines);
@@ -17,7 +18,7 @@ public class Main {
             PrintCounter.findPrint(pythonLines);
 
             // Prepare output
-            OutputFormatter formatter = new OutputFormatter(pythonLines, pythonLines, PrintCounter.printNum);
+            OutputFormatter formatter = new OutputFormatter(originalLines, pythonLines, PrintCounter.printNum);
             formatter.saveOutput("output_file.py");
 
             // Print success message
