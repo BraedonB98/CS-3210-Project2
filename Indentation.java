@@ -1,14 +1,5 @@
-//Indentation.check(pythonParsed);
-// check indentation of Python file
-//Indentation.fix(pythonParsed)
-// Fixed indentation in python file
-
-import java.util.Stack;
-
-
 //Assumes there is one statement per function/loop/branch
-
-//NOTE: Ask about spacing & if we can anticipate divides between separate functions/commands, how to distinguish?
+//We assume each block of code is separated by an empty line
 public class Indentation {
     public static String[] fixTabs(String[] stringArray) {
         int tabNumber = 0;
@@ -24,7 +15,7 @@ public class Indentation {
             if (stringArray[i].charAt(stringArray[i].length() - 1) == ':') {    //If line ends with a colon, ensures following line indents.
                 tabNumber++;
             }
-            else if (tabNumber > 0) {  //If line doesn't end in colon, assumes this statement is only one under current indent. Returns tab to previous line.
+            else if (tabNumber > 1) {  //If line doesn't end in colon, assumes this statement is only one under current indent. Returns tab to previous line.
                 tabNumber--;
             }
         }

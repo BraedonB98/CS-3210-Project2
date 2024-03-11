@@ -28,9 +28,4 @@ public class PythonParser {
         }
         return fileLines;
     }
-
-    //Outputs number of lines for testing purposes.
-    public int getNumLines() {
-        return numLines;
-    }
 }
