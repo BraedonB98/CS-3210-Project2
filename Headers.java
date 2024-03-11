@@ -56,13 +56,4 @@ public class Headers {
         return fixCode;
     }
 
-    public static boolean parenCount(String fix){
-        if(fix.contains("(")){
-
-            return true;
-        }
-
-        return false;
-    }
-
 }
